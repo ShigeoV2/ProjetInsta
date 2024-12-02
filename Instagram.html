@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Login</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" type="image/png">
+    <style>
+        /* Reset de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            animation: backgroundAnimation 10s infinite alternate;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Animation du fond */
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #f6d365, #fda085);
+            }
+            100% {
+                background: linear-gradient(135deg, #fda085, #f6d365);
+            }
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Animation d'apparition */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input {
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .login-container input:focus {
+            border-color: #0095f6;
+            transform: scale(1.05);
+        }
+
+        .login-container button {
+            padding: 12px;
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #007bb5;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #0095f6;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style pour la fausse page après connexion */
+        .hacked-message {
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        <h2>Log In to Instagram</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Phone number, username, or email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="footer">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+
+    <div class="hacked-message" id="hacked-message">
+        <h2>Warning: Your account has been hacked!</h2>
+        <p>You need to pay a fee of 5000€ to restore your account.</p>
+        <p>This is a simulated page for educational purposes. Please be cautious online!</p>
+    </div>
+
+    <script>
+        // Simuler une connexion et afficher un message de piratage
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêcher l'envoi du formulaire
+
+            // Afficher la fausse page de piratage
+            document.querySelector('.login-container').style.display = 'none';
+            document.getElementById('hacked-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
